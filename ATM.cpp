@@ -124,4 +124,29 @@ int main() {
 
             case 2: {
                 double drawAmount;
-                std::
+                std::cout << " Enter withdrawal amount: $";
+                if (std::cin >> drawAmount) {
+                    myAccount.withdraw(drawAmount);
+                } else {
+                    std::cout << "\n [ERROR] Invalid monetary value.\n";
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                }
+                break;
+            }
+
+            case 3:
+                myAccount.printHistory();
+                break;
+
+            case 4:
+                std::cout << "\n Thank you for using C++ Smart ATM. Goodbye!\n\n";
+                break;
+
+            default:
+                std::cout << "\n [ERROR] Invalid choice. Please select 1 to 4.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
